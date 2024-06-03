@@ -31,9 +31,7 @@ const Switch: FC<SwitchProps> = ({
 
   return (
     <Styles.Container>
-      <Typography variant="Medium" color={textColor}>
-        {label}
-      </Typography>
+      <Typography color={textColor}>{label}</Typography>
       <Styles.Switch
         trackColor={{
           false: trackColor,

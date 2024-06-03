@@ -23,8 +23,8 @@ export interface ButtonProps {
   alignItems?: string;
   onPressIn?: () => void;
   onPressOut?: () => void;
-  activityColor: string;
-  disabledColor: string;
+  activityColor?: string;
+  disabledColor?: string;
 }
 
 const Button: FC<ButtonProps> = ({

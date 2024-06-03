@@ -15,7 +15,7 @@ interface ButtonProps extends TouchableOpacityProps {
 interface ButtonWithColorProps {
   paddingVertical: string;
   paddingHorizontal: string;
-  color: string;
+  color?: string;
   width: string;
   height: string;
   minHeight: string;

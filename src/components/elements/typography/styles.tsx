@@ -10,11 +10,11 @@ interface TypographyProps {
   width?: string;
   textDecorationLine?: string;
   numberOfLines?: number;
-  flexShrink: number;
-  fontFamily: string;
-  fontSize: string;
-  lineHeight: string;
-  fontWeight: number;
+  flexShrink?: number;
+  fontFamily?: string;
+  fontSize?: string;
+  lineHeight?: string;
+  fontWeight?: number;
 }
 
 export const Typography = styled.Text<TypographyProps>`
@@ -25,10 +25,10 @@ export const Typography = styled.Text<TypographyProps>`
   text-align: ${({ textAlign }) => textAlign};
   width: ${({ width }) => width};
   text-decoration-line: ${({ textDecorationLine }) => textDecorationLine};
-  color: ${({ color }) => color};
-  flex-shrink: ${({ flexShrink }) => flexShrink};
-  font-family: ${({ fontFamily }) => fontFamily};
-  font-weight: ${({ fontWeight }) => fontWeight};
-  font-size: ${({ fontSize }) => fontSize};
-  line-height: ${({ lineHeight }) => lineHeight};
+  ${({ color }) => `color: ${color}`};
+  ${({ flexShrink }) => flexShrink && `flex-shrink: ${flexShrink}`};
+  ${({ fontFamily }) => fontFamily && `font-family: ${fontFamily}`};
+  ${({ fontWeight }) => fontWeight && `font-weight: ${fontWeight}`};
+  ${({ fontSize }) => fontSize && `font-size: ${fontSize}`};
+  ${({ lineHeight }) => lineHeight && `line-height: ${lineHeight}`};
 `;

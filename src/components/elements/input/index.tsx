@@ -33,10 +33,10 @@ export interface InputProps {
   secureText?: boolean;
   keyboardType?: KeyboardTypeOptions;
   onBlur?: () => void;
-  labelColor: string;
-  placeholderColor: string;
-  selectionColor: string;
-  inputColor: string;
+  labelColor?: string;
+  placeholderColor?: string;
+  selectionColor?: string;
+  inputColor?: string;
 }
 
 const Input: FC<InputProps> = ({
@@ -74,7 +74,7 @@ const Input: FC<InputProps> = ({
   inputColor,
 }) => {
   const renderLabel = label ? (
-    <Typography variant="Small" marginBottom="8px" color={labelColor}>
+    <Typography marginBottom="8px" color={labelColor}>
       {label}
     </Typography>
   ) : null;
@@ -117,7 +117,7 @@ const Input: FC<InputProps> = ({
           height={height}
           textAlignVertical={textAlignVertical}
           textMarginTop={textMarginTop}
-          inputColor={inputColor}
+          color={inputColor}
         />
       </Styles.InputView>
     </Styles.Container>

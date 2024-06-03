@@ -56,10 +56,8 @@ const WarningModal: FC<WarningModalProps> = ({
       <Styles.Shadow onPress={close} backgroundColor={shadowBackgroundColor} />
       <Styles.CenterContainer>
         <Styles.Container backgroundColor={containerBackgroundColor}>
-          <Typography textAlign="center" variant="Medium">
-            {title}
-          </Typography>
-          <Typography textAlign="center" variant="Small" marginTop="8px">
+          <Typography textAlign="center">{title}</Typography>
+          <Typography textAlign="center" marginTop="8px">
             {body}
           </Typography>
           <Styles.ButtonContainer>
@@ -70,11 +68,7 @@ const WarningModal: FC<WarningModalProps> = ({
               color={confirmButtonColor}
               paddingHorizontal="16px"
             >
-              <Typography
-                textAlign="center"
-                variant="Medium"
-                color={confirmButtonTextColor}
-              >
+              <Typography textAlign="center" color={confirmButtonTextColor}>
                 {confirmText}
               </Typography>
             </Button>
@@ -85,11 +79,7 @@ const WarningModal: FC<WarningModalProps> = ({
               color={cancelButtonColor}
               paddingHorizontal="16px"
             >
-              <Typography
-                textAlign="center"
-                variant="Medium"
-                color={cancelButtonTextColor}
-              >
+              <Typography textAlign="center" color={cancelButtonTextColor}>
                 {cancelText}
               </Typography>
             </Button>

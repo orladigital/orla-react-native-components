@@ -44,11 +44,7 @@ const PhoneInput: FC<PhoneInputProps> = ({
 
   return (
     <Styles.Container>
-      <Typography
-        variant="SmallHighlight"
-        marginBottom="8px"
-        color={labelColor}
-      >
+      <Typography marginBottom="8px" color={labelColor}>
         {label}
       </Typography>
       <Styles.InputContainer borderColor={borderColor}>

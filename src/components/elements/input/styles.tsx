@@ -24,7 +24,7 @@ interface InputProps {
   height: string;
   textMarginTop: string;
   textAlignVertical: string;
-  inputColor: string;
+  color?: string;
 }
 
 export const Container = styled.View<ContainerProps>`
@@ -63,5 +63,5 @@ export const Input = styled.TextInput<InputProps>`
   width: 100%;
   margin-top: ${(props: InputProps) => props.textMarginTop};
   text-align-vertical: ${(props: InputProps) => props.textAlignVertical};
-  color: ${({ inputColor }) => inputColor};
+  ${({ color }) => color && `color: ${color}`};
 `;

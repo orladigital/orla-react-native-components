@@ -3,7 +3,7 @@ import React, { type FC, type ReactNode } from 'react';
 import * as Styles from './styles';
 
 export interface TypographyProps {
-  color: string;
+  color?: string;
   marginTop?: string;
   marginBottom?: string;
   marginLeft?: string;
@@ -12,11 +12,11 @@ export interface TypographyProps {
   textAlign?: string;
   numberOfLines?: number;
   textDecorationLine?: string;
-  flexShrink: number;
-  fontFamily: string;
-  fontSize: string;
-  lineHeight: string;
-  fontWeight: number;
+  flexShrink?: number;
+  fontFamily?: string;
+  fontSize?: string;
+  lineHeight?: string;
+  fontWeight?: number;
   children: ReactNode;
 }
 
