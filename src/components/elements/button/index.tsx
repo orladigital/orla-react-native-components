@@ -1,11 +1,9 @@
-import React, {FC, ReactNode} from 'react';
-import {ActivityIndicator, Platform} from 'react-native';
-
-import colors from 'constants/colors';
+import React, { type FC, type ReactNode } from 'react';
+import { ActivityIndicator, Platform } from 'react-native';
 
 import * as Styles from './styles';
 
-interface ButtonProps {
+export interface ButtonProps {
   children?: ReactNode;
   onPress?: () => void;
   variant?: 'FilledButton' | 'BorderButton' | 'Button';
@@ -25,6 +23,8 @@ interface ButtonProps {
   alignItems?: string;
   onPressIn?: () => void;
   onPressOut?: () => void;
+  activityColor: string;
+  disabledColor: string;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -47,6 +47,8 @@ const Button: FC<ButtonProps> = ({
   alignItems = 'center',
   onPressIn = () => {},
   onPressOut = () => {},
+  activityColor,
+  disabledColor,
 }) => {
   const Element = Styles.Buttons[variant];
 
@@ -56,7 +58,7 @@ const Button: FC<ButtonProps> = ({
     <Element
       onPress={onPress}
       disabled={isLoading || disabled}
-      color={disabled ? colors.brandGray : color}
+      color={disabled ? disabledColor : color}
       paddingVertical={paddingVertical}
       paddingHorizontal={paddingHorizontal}
       height={height}
@@ -69,12 +71,13 @@ const Button: FC<ButtonProps> = ({
       justifyContent={justifyContent}
       onPressIn={onPressIn}
       onPressOut={onPressOut}
-      alignItems={alignItems}>
+      alignItems={alignItems}
+    >
       {isLoading ? (
         <Styles.ActivityContainer>
           <ActivityIndicator
             size={activityIndicatorSize}
-            color={colors.brandWhite}
+            color={activityColor}
           />
         </Styles.ActivityContainer>
       ) : (

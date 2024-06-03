@@ -1,26 +1,21 @@
-import React, {FC} from 'react';
-
-import {images} from 'constants/images';
+import React, { type FC } from 'react';
 
 import * as Styles from './styles';
 
-interface ImageProps {
-  path?: keyof typeof images;
-  sprite?: string;
+export interface ImageProps {
+  path: any;
   height?: string | number;
   width?: string | number;
 }
 
-const Image: FC<ImageProps> = ({path, sprite, height, width}) => {
-  if (path || sprite) {
-    return (
-      <Styles.Image
-        source={path ? images[path] : sprite}
-        height={height as number}
-        width={width as number}
-      />
-    );
-  }
+const Image: FC<ImageProps> = ({ path, height, width }) => {
+  return (
+    <Styles.Image
+      source={path}
+      height={height as number}
+      width={width as number}
+    />
+  );
 };
 
 export default Image;

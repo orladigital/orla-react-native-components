@@ -1,7 +1,5 @@
 import styled from 'styled-components/native';
 
-import colors from 'constants/colors';
-
 interface ContainerProps {
   topMargin?: string;
   leftMargin?: string;
@@ -26,6 +24,7 @@ interface InputProps {
   height: string;
   textMarginTop: string;
   textAlignVertical: string;
+  inputColor: string;
 }
 
 export const Container = styled.View<ContainerProps>`
@@ -41,8 +40,8 @@ export const InputView = styled.View<ViewContainerProps>`
   padding-vertical: ${(props: ViewContainerProps) => props.paddingVertical};
   padding-top: ${(props: ViewContainerProps) => props.paddingTop};
   padding-bottom: ${(props: ViewContainerProps) => props.paddingBottom};
-  height: ${props => props.height};
-  width: ${props => props.width};
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
   border-width: 1px;
   border-top-left-radius: ${(props: ViewContainerProps) =>
     props.topBorderLeftRadius};
@@ -60,9 +59,9 @@ export const Input = styled.TextInput<InputProps>`
   font-family: Roboto-Regular;
   font-size: 16px;
   line-height: 24px;
-  height: ${props => props.height};
+  height: ${(props) => props.height};
   width: 100%;
   margin-top: ${(props: InputProps) => props.textMarginTop};
   text-align-vertical: ${(props: InputProps) => props.textAlignVertical};
-  color: ${colors.brandBlack};
+  color: ${({ inputColor }) => inputColor};
 `;

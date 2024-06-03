@@ -8,6 +8,7 @@
     "allowUnusedLabels": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "outDir": "lib",
     "jsx": "react",
     "lib": ["esnext"],
     "module": "esnext",
@@ -20,9 +21,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
     "verbatimModuleSyntax": true
-  }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "example"]
 }

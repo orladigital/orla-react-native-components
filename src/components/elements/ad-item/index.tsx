@@ -1,16 +1,19 @@
-import React, {FC, useEffect, useRef} from 'react';
-import NativeAdView, {NativeMediaView} from 'react-native-admob-native-ads';
-import {DimensionValue, Platform} from 'react-native';
+import React, { type FC, useEffect, useRef } from 'react';
+import NativeAdView, { NativeMediaView } from 'react-native-admob-native-ads';
+import { Platform } from 'react-native';
 
 import * as Styles from './styles';
 
-const AdItem: FC = () => {
+export interface AdItemProps {
+  mediaStyle: object;
+  androidKey: string;
+  iosKey: string;
+}
+
+const AdItem: FC<AdItemProps> = ({ mediaStyle, androidKey, iosKey }) => {
   const nativeAdViewRef = useRef<NativeAdView>(null);
 
-  const mediaStyle = {
-    height: 200,
-    width: '100%' as DimensionValue,
-  };
+  const key = Platform.OS === 'android' ? androidKey : iosKey;
 
   useEffect(() => {
     nativeAdViewRef.current?.loadAd();
@@ -20,11 +23,8 @@ const AdItem: FC = () => {
     <NativeAdView
       ref={nativeAdViewRef}
       mediaAspectRatio={'landscape'}
-      adUnitID={
-        Platform.OS === 'android'
-          ? 'ad-key'
-          : 'ad-key'
-      }>
+      adUnitID={key}
+    >
       <Styles.Container>
         <NativeMediaView style={mediaStyle} />
       </Styles.Container>

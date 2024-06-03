@@ -10,68 +10,25 @@ interface TypographyProps {
   width?: string;
   textDecorationLine?: string;
   numberOfLines?: number;
+  flexShrink: number;
+  fontFamily: string;
+  fontSize: string;
+  lineHeight: string;
+  fontWeight: number;
 }
 
-const BaseTypography = styled.Text<TypographyProps>`
-  margin-top: ${(props: TypographyProps) => props.marginTop};
-  margin-bottom: ${(props: TypographyProps) => props.marginBottom};
-  margin-left: ${(props: TypographyProps) => props.marginLeft};
-  margin-right: ${(props: TypographyProps) => props.marginRight};
-  text-align: ${(props: TypographyProps) => props.textAlign};
-  width: ${(props: TypographyProps) => props.width};
-  text-decoration-line: ${(props: TypographyProps) => props.textDecorationLine};
-  color: ${(props: TypographyProps) => props.color};
-  flex-shrink: 1;
+export const Typography = styled.Text<TypographyProps>`
+  margin-top: ${({ marginTop }) => marginTop};
+  margin-bottom: ${({ marginBottom }) => marginBottom};
+  margin-left: ${({ marginLeft }) => marginLeft};
+  margin-right: ${({ marginRight }) => marginRight};
+  text-align: ${({ textAlign }) => textAlign};
+  width: ${({ width }) => width};
+  text-decoration-line: ${({ textDecorationLine }) => textDecorationLine};
+  color: ${({ color }) => color};
+  flex-shrink: ${({ flexShrink }) => flexShrink};
+  font-family: ${({ fontFamily }) => fontFamily};
+  font-weight: ${({ fontWeight }) => fontWeight};
+  font-size: ${({ fontSize }) => fontSize};
+  line-height: ${({ lineHeight }) => lineHeight};
 `;
-
-const Large = styled(BaseTypography)`
-  font-family: Roboto-Bold;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-`;
-
-const Medium = styled(BaseTypography)`
-  font-family: Roboto-Regular;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-`;
-
-const MediumHighlight = styled(BaseTypography)`
-  font-family: Roboto-Medium;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-`;
-
-const Small = styled(BaseTypography)`
-  font-family: Roboto-Regular;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-`;
-
-const SmallHighlight = styled(BaseTypography)`
-  font-family: Roboto-Medium;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-`;
-
-const Tiny = styled(BaseTypography)`
-  font-family: Roboto-Regular;
-  font-size: 12px;
-  line-height: 20px;
-`;
-
-const Typographies = {
-  Large,
-  Medium,
-  MediumHighlight,
-  Small,
-  SmallHighlight,
-  Tiny,
-};
-
-export {Typographies};

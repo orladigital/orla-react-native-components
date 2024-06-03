@@ -1,6 +1,12 @@
 import styled from 'styled-components/native';
 
-import colors from 'constants/colors';
+interface ContainerInterface {
+  backgroundColor: string;
+}
+
+interface ShadowInterface {
+  backgroundColor: string;
+}
 
 export const ModalPicker = styled.Modal``;
 
@@ -15,21 +21,21 @@ export const CenterContainer = styled.View`
   bottom: 0;
 `;
 
-export const Container = styled.View`
+export const Container = styled.View<ContainerInterface>`
   padding: 24px;
   padding-bottom: 16px;
   max-height: 70%;
   margin-left: 16px;
   margin-right: 16px;
-  background-color: ${colors.brandWhite};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   border-radius: 32px;
 `;
 
-export const Shadow = styled.TouchableOpacity`
+export const Shadow = styled.TouchableOpacity<ShadowInterface>`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.brandBlack}60;
+  background-color: ${({ backgroundColor }) => backgroundColor};
   padding: 16px;
 `;
 

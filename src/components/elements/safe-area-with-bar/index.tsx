@@ -1,24 +1,22 @@
-import React, {ReactNode} from 'react';
-import {ViewStyle, StatusBar} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { type ReactNode } from 'react';
+import { type ViewStyle, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-interface SafeAreaWithBarProps {
+export interface SafeAreaWithBarProps {
   color?: string;
   children: ReactNode;
   barStyle?: 'default' | 'light-content' | 'dark-content';
+  containerStyle: ViewStyle;
 }
 
 const SafeAreaWithBar: React.FC<SafeAreaWithBarProps> = ({
   color,
   children,
   barStyle,
+  containerStyle,
 }) => {
-  const styles: {container: ViewStyle} = {
-    container: {flex: 1},
-  };
-
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={containerStyle}>
       <StatusBar
         translucent={true}
         backgroundColor={color}
@@ -27,11 +25,6 @@ const SafeAreaWithBar: React.FC<SafeAreaWithBarProps> = ({
       {children}
     </SafeAreaView>
   );
-};
-
-SafeAreaWithBar.defaultProps = {
-  barStyle: 'light-content',
-  color: 'transparent',
 };
 
 export default SafeAreaWithBar;

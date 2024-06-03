@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, { type FC } from 'react';
 
-import {Slider as SliderLib} from '@miblanchard/react-native-slider';
+import { Slider as SliderLib } from '@miblanchard/react-native-slider';
 
-interface SliderProps {
+export interface SliderProps {
   minimumValue: number;
   maximumValue: number;
   fullColor: string;
@@ -11,6 +11,8 @@ interface SliderProps {
   onValueChange: (value: Array<number>) => void;
   value: number;
   thumbTintColor: string;
+  thumbStyle: object;
+  trackStyle: object;
 }
 
 const Slider: FC<SliderProps> = ({
@@ -22,18 +24,9 @@ const Slider: FC<SliderProps> = ({
   onValueChange,
   value,
   thumbTintColor,
+  thumbStyle,
+  trackStyle,
 }) => {
-  const thumbStyle = {
-    width: 24,
-    height: 24,
-    borderRadius: 48,
-  };
-
-  const trackStyle = {
-    height: 8,
-    borderRadius: 8,
-  };
-
   return (
     <SliderLib
       minimumValue={minimumValue}

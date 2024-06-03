@@ -1,9 +1,15 @@
 import styled from 'styled-components/native';
 
-import colors from 'constants/colors';
-
 interface ContainerProps {
-  paddingBottom: number;
+  paddingTop: string;
+  paddingBottom: string;
+  paddingLeft: string;
+  paddingRight: string;
+  backgroundColor: string;
+}
+
+interface ShadowProps {
+  backgroundColor: string;
 }
 
 export const ModalPicker = styled.Modal``;
@@ -13,17 +19,20 @@ export const Container = styled.View<ContainerProps>`
   padding-bottom: 16px;
   max-height: 400px;
   width: 100%;
-  background-color: ${colors.brandWhite};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   position: absolute;
   bottom: 0;
-  padding-bottom: ${({paddingBottom}) => paddingBottom + 32}px;
+  padding-top: ${({ paddingTop }) => paddingTop};
+  padding-bottom: ${({ paddingBottom }) => paddingBottom};
+  padding-left: ${({ paddingLeft }) => paddingLeft};
+  padding-right: ${({ paddingRight }) => paddingRight};
 `;
 
-export const Shadow = styled.TouchableOpacity`
+export const Shadow = styled.TouchableOpacity<ShadowProps>`
   flex: 1;
   justify-content: flex-end;
   align-items: center;
-  background-color: ${colors.brandBlack}60;
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `;

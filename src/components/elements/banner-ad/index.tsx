@@ -1,17 +1,21 @@
-import React, {FC} from 'react';
-import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
+import React, { type FC } from 'react';
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from 'react-native-google-mobile-ads';
+import { Platform } from 'react-native';
 
-import {usePayment} from 'hooks/payment-hook';
-import {Platform} from 'react-native';
+export interface BannerProps {
+  showNoAds: boolean;
+  androidKey: string;
+  iosKey: string;
+}
 
-const adUnitId = __DEV__
-  ? TestIds.BANNER
-  : Platform.OS === 'android'
-  ? 'ad-key'
-  : 'ad-key';
+const Banner: FC<BannerProps> = ({ showNoAds, androidKey, iosKey }) => {
+  const key = Platform.OS === 'android' ? androidKey : iosKey;
 
-const Banner: FC = () => {
-  const {showNoAds} = usePayment();
+  const adUnitId = __DEV__ ? TestIds.BANNER : key;
 
   return (
     !showNoAds && (

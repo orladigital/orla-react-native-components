@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {TouchableOpacityProps} from 'react-native';
+import { type TouchableOpacityProps } from 'react-native';
 
 interface ButtonProps extends TouchableOpacityProps {
   paddingVertical: string;
@@ -79,4 +79,4 @@ const Buttons = {
   Button,
 };
 
-export {Buttons, ActivityContainer};
+export { Buttons, ActivityContainer };

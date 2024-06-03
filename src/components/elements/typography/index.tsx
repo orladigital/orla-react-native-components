@@ -1,18 +1,9 @@
-import React, {FC, ReactNode} from 'react';
-
-import colors from 'constants/colors';
+import React, { type FC, type ReactNode } from 'react';
 
 import * as Styles from './styles';
 
-interface TypographyProps {
-  variant?:
-    | 'Large'
-    | 'Medium'
-    | 'MediumHighlight'
-    | 'Small'
-    | 'SmallHighlight'
-    | 'Tiny';
-  color?: string;
+export interface TypographyProps {
+  color: string;
   marginTop?: string;
   marginBottom?: string;
   marginLeft?: string;
@@ -21,12 +12,16 @@ interface TypographyProps {
   textAlign?: string;
   numberOfLines?: number;
   textDecorationLine?: string;
+  flexShrink: number;
+  fontFamily: string;
+  fontSize: string;
+  lineHeight: string;
+  fontWeight: number;
   children: ReactNode;
 }
 
 const Typography: FC<TypographyProps> = ({
-  variant = 'Medium',
-  color = colors.textColor,
+  color,
   marginTop = '0px',
   marginBottom = '0px',
   marginLeft = '0px',
@@ -35,12 +30,15 @@ const Typography: FC<TypographyProps> = ({
   textAlign = 'left',
   numberOfLines = 0,
   textDecorationLine = 'none',
+  flexShrink,
+  fontFamily,
+  fontSize,
+  lineHeight,
+  fontWeight,
   children,
 }) => {
-  const Element = Styles.Typographies[variant];
-
   return (
-    <Element
+    <Styles.Typography
       color={color}
       marginTop={marginTop}
       marginBottom={marginBottom}
@@ -49,9 +47,15 @@ const Typography: FC<TypographyProps> = ({
       numberOfLines={numberOfLines}
       textAlign={textAlign}
       width={width}
-      textDecorationLine={textDecorationLine}>
+      textDecorationLine={textDecorationLine}
+      flexShrink={flexShrink}
+      fontFamily={fontFamily}
+      fontSize={fontSize}
+      lineHeight={lineHeight}
+      fontWeight={fontWeight}
+    >
       {children}
-    </Element>
+    </Styles.Typography>
   );
 };
 

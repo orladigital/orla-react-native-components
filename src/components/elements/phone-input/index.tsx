@@ -1,28 +1,31 @@
-import React, {FC, useState} from 'react';
+import React, { type FC, useState } from 'react';
 import CountryPicker, {
-  Country,
-  CountryCode,
+  type Country,
+  type CountryCode,
 } from 'react-native-country-picker-modal';
 
-import Typography from 'elements/typography';
-import {useUser} from 'hooks/user-hook';
-import Input from 'elements/input';
+import Typography from '../typography';
+import Input from '../input';
 
 import * as Styles from './styles';
 
-interface PhoneInputProps {
+export interface PhoneInputProps {
   label: string;
   placeholder: string;
   onPhoneChange: (phone: string) => void;
+  countryCode: string;
+  labelColor: string;
+  borderColor: string;
 }
 
 const PhoneInput: FC<PhoneInputProps> = ({
   label,
   placeholder,
   onPhoneChange,
+  countryCode,
+  labelColor,
+  borderColor,
 }) => {
-  const {countryCode} = useUser();
-
   const [code, setCode] = useState<string>('');
   const [actualCountryCode, setActualCountryCode] =
     useState<string>(countryCode);
@@ -34,17 +37,21 @@ const PhoneInput: FC<PhoneInputProps> = ({
   };
 
   const onUpdateCode = (country: Country) => {
-    setCode(country.callingCode[0]);
+    setCode(country.callingCode[0] as string);
     setActualCountryCode(country.cca2);
     onPhoneChange(`${country.callingCode[0]}${phone}`);
   };
 
   return (
     <Styles.Container>
-      <Typography variant="SmallHighlight" marginBottom="8px">
+      <Typography
+        variant="SmallHighlight"
+        marginBottom="8px"
+        color={labelColor}
+      >
         {label}
       </Typography>
-      <Styles.InputContainer>
+      <Styles.InputContainer borderColor={borderColor}>
         <CountryPicker
           withEmoji
           withCallingCode
@@ -61,7 +68,7 @@ const PhoneInput: FC<PhoneInputProps> = ({
         />
         <Input
           value={phone}
-          onChangeText={value => onUpdatePhone(value)}
+          onChangeText={(value) => onUpdatePhone(value)}
           placeholder={placeholder}
           borderColor="transparent"
           topMargin="5px"

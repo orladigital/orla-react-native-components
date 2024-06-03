@@ -1,19 +1,24 @@
-import React, {Dispatch, FC, SetStateAction} from 'react';
-import {useTranslation} from 'react-i18next';
+import React, { type Dispatch, type FC, type SetStateAction } from 'react';
 
-import Button from 'elements/button';
-import Typography from 'elements/typography';
-import colors from 'constants/colors';
+import Button from '../../elements/button';
+import Typography from '../../elements/typography';
 
 import * as Styles from './styles';
 
-interface WarningModalProps {
+export interface WarningModalProps {
   show: boolean;
   setShow: Dispatch<SetStateAction<boolean>>;
   onConfirmPress: () => void;
   title: string;
   body: string;
   confirmText: string;
+  cancelText: string;
+  confirmButtonColor: string;
+  confirmButtonTextColor: string;
+  cancelButtonColor: string;
+  cancelButtonTextColor: string;
+  shadowBackgroundColor: string;
+  containerBackgroundColor: string;
 }
 
 const WarningModal: FC<WarningModalProps> = ({
@@ -23,9 +28,14 @@ const WarningModal: FC<WarningModalProps> = ({
   title,
   body,
   confirmText,
+  cancelText,
+  confirmButtonColor,
+  confirmButtonTextColor,
+  cancelButtonColor,
+  cancelButtonTextColor,
+  shadowBackgroundColor,
+  containerBackgroundColor,
 }) => {
-  const {t} = useTranslation();
-
   const close = () => {
     setShow(!show);
   };
@@ -41,10 +51,11 @@ const WarningModal: FC<WarningModalProps> = ({
       animationType="fade"
       transparent={true}
       visible={show}
-      onRequestClose={close}>
-      <Styles.Shadow onPress={close} />
+      onRequestClose={close}
+    >
+      <Styles.Shadow onPress={close} backgroundColor={shadowBackgroundColor} />
       <Styles.CenterContainer>
-        <Styles.Container>
+        <Styles.Container backgroundColor={containerBackgroundColor}>
           <Typography textAlign="center" variant="Medium">
             {title}
           </Typography>
@@ -56,12 +67,14 @@ const WarningModal: FC<WarningModalProps> = ({
               variant="FilledButton"
               width="49%"
               onPress={onConfirm}
-              color={colors.brandPrimary}
-              paddingHorizontal="16px">
+              color={confirmButtonColor}
+              paddingHorizontal="16px"
+            >
               <Typography
                 textAlign="center"
                 variant="Medium"
-                color={colors.brandWhite}>
+                color={confirmButtonTextColor}
+              >
                 {confirmText}
               </Typography>
             </Button>
@@ -69,10 +82,15 @@ const WarningModal: FC<WarningModalProps> = ({
               variant="FilledButton"
               width="49%"
               onPress={close}
-              color={colors.brandGray}
-              paddingHorizontal="16px">
-              <Typography textAlign="center" variant="Medium">
-                {t('cancel')}
+              color={cancelButtonColor}
+              paddingHorizontal="16px"
+            >
+              <Typography
+                textAlign="center"
+                variant="Medium"
+                color={cancelButtonTextColor}
+              >
+                {cancelText}
               </Typography>
             </Button>
           </Styles.ButtonContainer>

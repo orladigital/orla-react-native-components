@@ -1,32 +1,45 @@
-import React, {FC} from 'react';
+import React, { type FC } from 'react';
 
-import Typography from 'elements/typography';
-import colors from 'constants/colors';
+import Typography from '../typography';
 
 import * as Styles from './styles';
 
-interface SwitchProps {
+export interface SwitchProps {
   label: string;
   state: boolean;
   onToggleChange: (isOn: boolean) => void;
+  textColor: string;
+  trackColor: string;
+  trackFilledColor: string;
+  thumbColor: string;
+  thumbActiveColor: string;
 }
 
-const Switch: FC<SwitchProps> = ({label, state, onToggleChange}) => {
+const Switch: FC<SwitchProps> = ({
+  label,
+  state,
+  onToggleChange,
+  textColor,
+  trackColor,
+  trackFilledColor,
+  thumbColor,
+  thumbActiveColor,
+}) => {
   const toggleSwitch = () => {
     onToggleChange(!state);
   };
 
   return (
     <Styles.Container>
-      <Typography variant="Medium" color={colors.brandWhite}>
+      <Typography variant="Medium" color={textColor}>
         {label}
       </Typography>
       <Styles.Switch
         trackColor={{
-          false: colors.brandWhite,
-          true: colors.brandWhite,
+          false: trackColor,
+          true: trackFilledColor,
         }}
-        thumbColor={state ? colors.brandSecondary : colors.brandWhite}
+        thumbColor={state ? thumbActiveColor : thumbColor}
         onValueChange={toggleSwitch}
         value={state}
       />

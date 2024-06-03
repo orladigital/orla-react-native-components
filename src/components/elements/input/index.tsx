@@ -1,19 +1,17 @@
-import {KeyboardTypeOptions} from 'react-native/types';
-import React, {FC} from 'react';
-import Typography from 'elements/typography';
-
-import colors from 'constants/colors';
+import { type KeyboardTypeOptions } from 'react-native/types';
+import React, { type FC } from 'react';
+import Typography from '../typography';
 
 import * as Styles from './styles';
 
-interface InputProps {
+export interface InputProps {
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
   editable?: boolean;
   onSubmitEditing?: () => void;
   autoFocus?: boolean;
-  borderColor?: string;
+  borderColor: string;
   topMargin?: string;
   leftMargin?: string;
   bottomMargin?: string;
@@ -35,6 +33,10 @@ interface InputProps {
   secureText?: boolean;
   keyboardType?: KeyboardTypeOptions;
   onBlur?: () => void;
+  labelColor: string;
+  placeholderColor: string;
+  selectionColor: string;
+  inputColor: string;
 }
 
 const Input: FC<InputProps> = ({
@@ -44,7 +46,7 @@ const Input: FC<InputProps> = ({
   editable = true,
   onSubmitEditing = () => {},
   autoFocus = false,
-  borderColor = colors.brandGray,
+  borderColor,
   topMargin = '0px',
   leftMargin = '0px',
   bottomMargin = '0px',
@@ -66,9 +68,13 @@ const Input: FC<InputProps> = ({
   secureText = false,
   keyboardType = 'default',
   onBlur = () => {},
+  labelColor,
+  placeholderColor,
+  selectionColor,
+  inputColor,
 }) => {
   const renderLabel = label ? (
-    <Typography variant="Small" marginBottom="8px">
+    <Typography variant="Small" marginBottom="8px" color={labelColor}>
       {label}
     </Typography>
   ) : null;
@@ -77,7 +83,8 @@ const Input: FC<InputProps> = ({
     <Styles.Container
       topMargin={topMargin}
       leftMargin={leftMargin}
-      bottomMargin={bottomMargin}>
+      bottomMargin={bottomMargin}
+    >
       {renderLabel}
       <Styles.InputView
         borderColor={borderColor}
@@ -90,15 +97,16 @@ const Input: FC<InputProps> = ({
         bottomBorderRightRadius={bottomBorderRightRadius}
         paddingBottom={paddingBottom}
         paddingHorizontal={paddingHorizontal}
-        height={height}>
+        height={height}
+      >
         <Styles.Input
           autoFocus={autoFocus}
           value={value}
           onChangeText={onChangeText}
-          placeholderTextColor={colors.textColor}
+          placeholderTextColor={placeholderColor}
           placeholder={placeholder}
           editable={editable}
-          selectionColor={colors.brandPrimary}
+          selectionColor={selectionColor}
           onSubmitEditing={onSubmitEditing}
           blurOnSubmit={false}
           multiline={multiline}
@@ -109,6 +117,7 @@ const Input: FC<InputProps> = ({
           height={height}
           textAlignVertical={textAlignVertical}
           textMarginTop={textMarginTop}
+          inputColor={inputColor}
         />
       </Styles.InputView>
     </Styles.Container>
