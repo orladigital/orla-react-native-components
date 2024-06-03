@@ -18,14 +18,15 @@ interface TypographyProps {
 }
 
 export const Typography = styled.Text<TypographyProps>`
-  margin-top: ${({ marginTop }) => marginTop};
-  margin-bottom: ${({ marginBottom }) => marginBottom};
-  margin-left: ${({ marginLeft }) => marginLeft};
-  margin-right: ${({ marginRight }) => marginRight};
-  text-align: ${({ textAlign }) => textAlign};
-  width: ${({ width }) => width};
-  text-decoration-line: ${({ textDecorationLine }) => textDecorationLine};
-  ${({ color }) => `color: ${color}`};
+  ${({ color }) => color && `color: ${color}`};
+  ${({ marginTop }) => marginTop && `margin-top: ${marginTop}`};
+  ${({ marginBottom }) => marginBottom && `margin-bottom: ${marginBottom}`};
+  ${({ marginLeft }) => marginLeft && `margin-left: ${marginLeft}`};
+  ${({ marginRight }) => marginRight && `margin-right: ${marginRight}`};
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign}`};
+  ${({ width }) => width && `width: ${width}`};
+  ${({ textDecorationLine }) =>
+    textDecorationLine && `text-decoration-line: ${textDecorationLine}`};
   ${({ flexShrink }) => flexShrink && `flex-shrink: ${flexShrink}`};
   ${({ fontFamily }) => fontFamily && `font-family: ${fontFamily}`};
   ${({ fontWeight }) => fontWeight && `font-weight: ${fontWeight}`};

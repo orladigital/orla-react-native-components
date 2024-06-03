@@ -13,6 +13,9 @@ export interface SwitchProps {
   trackFilledColor: string;
   thumbColor: string;
   thumbActiveColor: string;
+  flexDirection: string;
+  alignItems: string;
+  justifyContent: string;
 }
 
 const Switch: FC<SwitchProps> = ({
@@ -24,13 +27,20 @@ const Switch: FC<SwitchProps> = ({
   trackFilledColor,
   thumbColor,
   thumbActiveColor,
+  flexDirection,
+  alignItems,
+  justifyContent,
 }) => {
   const toggleSwitch = () => {
     onToggleChange(!state);
   };
 
   return (
-    <Styles.Container>
+    <Styles.Container
+      flexDirection={flexDirection}
+      alignItems={alignItems}
+      justifyContent={justifyContent}
+    >
       <Typography color={textColor}>{label}</Typography>
       <Styles.Switch
         trackColor={{

@@ -1,13 +1,16 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 8px;
-  margin-bottom: 16px;
+interface ContainerProps {
+  flexDirection?: string;
+  alignItems?: string;
+  justifyContent?: string;
+}
+
+export const Container = styled.View<ContainerProps>`
+  ${({ flexDirection }) => flexDirection && `flex-direction: ${flexDirection}`};
+  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
+  ${({ justifyContent }) =>
+    justifyContent && `justify-content: ${justifyContent}`};
 `;
 
-export const Switch = styled.Switch`
-  transform: scale(1.5);
-`;
+export const Switch = styled.Switch``;

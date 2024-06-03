@@ -5,72 +5,78 @@ import Typography from '../typography';
 import * as Styles from './styles';
 
 export interface InputProps {
-  value: string;
-  onChangeText: (text: string) => void;
-  placeholder?: string;
-  editable?: boolean;
-  onSubmitEditing?: () => void;
-  autoFocus?: boolean;
-  borderColor: string;
-  topMargin?: string;
-  leftMargin?: string;
-  bottomMargin?: string;
-  height?: string;
-  width?: string;
-  multiline?: boolean;
-  paddingVertical?: string;
+  marginTop?: string;
+  marginLeft?: string;
+  marginRight?: string;
+  marginBottom?: string;
+  flexDirection?: string;
   paddingTop?: string;
   paddingBottom?: string;
-  paddingHorizontal?: string;
-  textAlignVertical?: string;
-  textMarginTop?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
+  height?: string;
+  width?: string;
+  borderColor?: string;
+  borderWidth?: string;
+  borderTopLeftRadius?: string;
+  borderBottomLeftRadius?: string;
+  borderTopRightRadius?: string;
+  borderBottomRightRadius?: string;
+  alignContent?: string;
+  onChangeText: (text: string) => void;
+  onSubmitEditing?: () => void;
+  onBlur?: () => void;
+  value: string;
+  placeholder?: string;
+  placeholderColor?: string;
+  editable?: boolean;
+  autoFocus?: boolean;
+  multiline?: boolean;
+  selectionColor?: string;
+  blurOnSubmit?: boolean;
   label?: string;
-  topBorderLeftRadius?: string;
-  bottomBorderLeftRadius?: string;
-  topBorderRightRadius?: string;
-  bottomBorderRightRadius?: string;
+  labelColor?: string;
   maxLength?: number;
   secureText?: boolean;
   keyboardType?: KeyboardTypeOptions;
-  onBlur?: () => void;
-  labelColor?: string;
-  placeholderColor?: string;
-  selectionColor?: string;
   inputColor?: string;
 }
 
 const Input: FC<InputProps> = ({
-  value,
-  onChangeText,
-  placeholder,
-  editable = true,
-  onSubmitEditing = () => {},
-  autoFocus = false,
+  marginTop,
+  marginLeft,
+  marginRight,
+  marginBottom,
+  flexDirection,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  height,
+  width,
   borderColor,
-  topMargin = '0px',
-  leftMargin = '0px',
-  bottomMargin = '0px',
-  height = '48px',
-  width = '100%',
+  borderWidth,
+  borderTopLeftRadius,
+  borderBottomLeftRadius,
+  borderTopRightRadius,
+  borderBottomRightRadius,
+  alignContent,
+  onChangeText,
+  onSubmitEditing = () => {},
+  onBlur = () => {},
+  value,
+  placeholder,
+  placeholderColor,
+  editable = true,
+  autoFocus = false,
   multiline = false,
-  paddingVertical = '0px',
-  paddingTop = '0px',
-  paddingBottom = '0px',
-  paddingHorizontal = '0px',
-  textAlignVertical = 'top',
-  textMarginTop = '0px',
+  selectionColor,
+  blurOnSubmit,
   label,
-  topBorderLeftRadius = '24px',
-  bottomBorderLeftRadius = '24px',
-  topBorderRightRadius = '24px',
-  bottomBorderRightRadius = '24px',
-  maxLength = undefined,
+  labelColor,
+  maxLength,
   secureText = false,
   keyboardType = 'default',
-  onBlur = () => {},
-  labelColor,
-  placeholderColor,
-  selectionColor,
   inputColor,
 }) => {
   const renderLabel = label ? (
@@ -81,42 +87,43 @@ const Input: FC<InputProps> = ({
 
   return (
     <Styles.Container
-      topMargin={topMargin}
-      leftMargin={leftMargin}
-      bottomMargin={bottomMargin}
+      marginTop={marginTop}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+      marginBottom={marginBottom}
     >
       {renderLabel}
       <Styles.InputView
-        borderColor={borderColor}
-        paddingVertical={paddingVertical}
+        flexDirection={flexDirection}
         paddingTop={paddingTop}
-        width={width}
-        topBorderLeftRadius={topBorderLeftRadius}
-        bottomBorderLeftRadius={bottomBorderLeftRadius}
-        topBorderRightRadius={topBorderRightRadius}
-        bottomBorderRightRadius={bottomBorderRightRadius}
         paddingBottom={paddingBottom}
-        paddingHorizontal={paddingHorizontal}
+        paddingLeft={paddingLeft}
+        paddingRight={paddingRight}
         height={height}
+        width={width}
+        borderColor={borderColor}
+        borderWidth={borderWidth}
+        borderTopLeftRadius={borderTopLeftRadius}
+        borderBottomLeftRadius={borderBottomLeftRadius}
+        borderTopRightRadius={borderTopRightRadius}
+        borderBottomRightRadius={borderBottomRightRadius}
+        alignContent={alignContent}
       >
         <Styles.Input
-          autoFocus={autoFocus}
-          value={value}
           onChangeText={onChangeText}
-          placeholderTextColor={placeholderColor}
-          placeholder={placeholder}
-          editable={editable}
-          selectionColor={selectionColor}
           onSubmitEditing={onSubmitEditing}
-          blurOnSubmit={false}
+          onBlur={onBlur}
+          value={value}
+          placeholder={placeholder}
+          placeholderTextColor={placeholderColor}
+          editable={editable}
+          autoFocus={autoFocus}
           multiline={multiline}
+          selectionColor={selectionColor}
+          blurOnSubmit={blurOnSubmit}
           maxLength={maxLength}
           secureTextEntry={secureText}
           keyboardType={keyboardType}
-          onBlur={onBlur}
-          height={height}
-          textAlignVertical={textAlignVertical}
-          textMarginTop={textMarginTop}
           color={inputColor}
         />
       </Styles.InputView>

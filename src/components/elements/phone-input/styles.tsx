@@ -1,20 +1,37 @@
 import styled from 'styled-components/native';
 
-interface InputContainerInterface {
-  borderColor: string;
+interface ContainerProps {
+  marginTop?: string;
+  marginBottom?: string;
+  marginRight?: string;
+  marginLeft?: string;
 }
 
-export const Container = styled.View`
-  margin-top: 16px;
+interface InputContainerInterface {
+  borderColor?: string;
+  height?: string;
+  flex?: string;
+  flexDirection?: string;
+  borderWidth?: string;
+  alignItems?: string;
+  padding?: string;
+  borderRadius?: string;
+}
+
+export const Container = styled.View<ContainerProps>`
+  ${({ marginTop }) => marginTop && `margin-top: ${marginTop}`};
+  ${({ marginBottom }) => marginBottom && `margin-bottom: ${marginBottom}`};
+  ${({ marginRight }) => marginRight && `margin-right: ${marginRight}`};
+  ${({ marginLeft }) => marginLeft && `margin-left: ${marginLeft}`};
 `;
 
 export const InputContainer = styled.View<InputContainerInterface>`
-  height: 48px;
-  flex-direction: row;
-  flex: 1;
-  border-color: ${({ borderColor }) => borderColor};
-  border-width: 1px;
-  align-items: center;
-  padding: 0px 16px;
-  border-radius: 24px;
+  ${({ borderColor }) => borderColor && `border-color: ${borderColor}`};
+  ${({ height }) => height && `height: ${height}`};
+  ${({ flex }) => flex && `flex: ${flex}`};
+  ${({ flexDirection }) => flexDirection && `flex-direction: ${flexDirection}`};
+  ${({ borderWidth }) => borderWidth && `border-width: ${borderWidth}`};
+  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
+  ${({ padding }) => padding && `padding: ${padding}`};
+  ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius}`};
 `;

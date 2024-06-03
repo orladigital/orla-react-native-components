@@ -4,51 +4,61 @@ import { ActivityIndicator, Platform } from 'react-native';
 import * as Styles from './styles';
 
 export interface ButtonProps {
-  children?: ReactNode;
-  onPress?: () => void;
-  variant?: 'FilledButton' | 'BorderButton' | 'Button';
-  disabled?: boolean;
-  color?: string;
+  paddingTop?: string;
+  paddingBottom?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
   marginTop?: string;
   marginBottom?: string;
   marginLeft?: string;
   marginRight?: string;
+  justifyContent?: string;
+  alignItems?: string;
+  flexDirection?: string;
   width?: string;
   height?: string;
   minHeight?: string;
-  paddingVertical?: string;
-  paddingHorizontal?: string;
+  borderRadius?: string;
+  borderWidth?: string;
+  borderColor?: string;
+  backgroundColor?: string;
+  variant?: 'FilledButton' | 'BorderButton' | 'Button';
+  disabled?: boolean;
   isLoading?: boolean;
-  justifyContent?: string;
-  alignItems?: string;
+  onPress?: () => void;
   onPressIn?: () => void;
   onPressOut?: () => void;
   activityColor?: string;
-  disabledColor?: string;
+  children?: ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({
-  children,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  justifyContent,
+  alignItems,
+  flexDirection,
+  width,
+  height,
+  minHeight,
+  borderRadius,
+  borderWidth,
+  borderColor,
+  backgroundColor,
   variant = 'FilledButton',
-  onPress = () => {},
   disabled = false,
-  color = '',
-  marginTop = '0px',
-  marginBottom = '0px',
-  marginLeft = '0px',
-  marginRight = '0px',
-  width = '100%',
-  height = '64px',
-  minHeight = '0px',
-  paddingVertical = '0px',
-  paddingHorizontal = '0px',
   isLoading = false,
-  justifyContent = 'center',
-  alignItems = 'center',
+  onPress = () => {},
   onPressIn = () => {},
   onPressOut = () => {},
   activityColor,
-  disabledColor,
+  children,
 }) => {
   const Element = Styles.Buttons[variant];
 
@@ -56,22 +66,28 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <Element
-      onPress={onPress}
-      disabled={isLoading || disabled}
-      color={disabled ? disabledColor : color}
-      paddingVertical={paddingVertical}
-      paddingHorizontal={paddingHorizontal}
-      height={height}
-      minHeight={minHeight}
-      width={width}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
       marginTop={marginTop}
       marginBottom={marginBottom}
       marginRight={marginRight}
       marginLeft={marginLeft}
       justifyContent={justifyContent}
+      alignItems={alignItems}
+      flexDirection={flexDirection}
+      width={width}
+      height={height}
+      minHeight={minHeight}
+      borderRadius={borderRadius}
+      borderWidth={borderWidth}
+      borderColor={borderColor}
+      backgroundColor={backgroundColor}
+      disabled={isLoading || disabled}
+      onPress={onPress}
       onPressIn={onPressIn}
       onPressOut={onPressOut}
-      alignItems={alignItems}
     >
       {isLoading ? (
         <Styles.ActivityContainer>

@@ -19,6 +19,8 @@ export interface WarningModalProps {
   cancelButtonTextColor: string;
   shadowBackgroundColor: string;
   containerBackgroundColor: string;
+  confirmButtonWidth: string;
+  cancelButtonWidth: string;
 }
 
 const WarningModal: FC<WarningModalProps> = ({
@@ -35,6 +37,8 @@ const WarningModal: FC<WarningModalProps> = ({
   cancelButtonTextColor,
   shadowBackgroundColor,
   containerBackgroundColor,
+  confirmButtonWidth,
+  cancelButtonWidth,
 }) => {
   const close = () => {
     setShow(!show);
@@ -63,10 +67,10 @@ const WarningModal: FC<WarningModalProps> = ({
           <Styles.ButtonContainer>
             <Button
               variant="FilledButton"
-              width="49%"
+              width={confirmButtonWidth}
               onPress={onConfirm}
-              color={confirmButtonColor}
-              paddingHorizontal="16px"
+              borderColor={confirmButtonColor}
+              backgroundColor={confirmButtonColor}
             >
               <Typography textAlign="center" color={confirmButtonTextColor}>
                 {confirmText}
@@ -74,10 +78,10 @@ const WarningModal: FC<WarningModalProps> = ({
             </Button>
             <Button
               variant="FilledButton"
-              width="49%"
+              width={cancelButtonWidth}
               onPress={close}
-              color={cancelButtonColor}
-              paddingHorizontal="16px"
+              borderColor={cancelButtonColor}
+              backgroundColor={cancelButtonColor}
             >
               <Typography textAlign="center" color={cancelButtonTextColor}>
                 {cancelText}

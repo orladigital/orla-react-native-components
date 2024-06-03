@@ -11,20 +11,36 @@ import * as Styles from './styles';
 
 export interface PhoneInputProps {
   label: string;
+  labelColor: string;
   placeholder: string;
+  borderColor?: string;
+  height?: string;
+  flex?: string;
+  flexDirection?: string;
+  borderWidth?: string;
+  alignItems?: string;
+  padding?: string;
+  borderRadius?: string;
   onPhoneChange: (phone: string) => void;
   countryCode: string;
-  labelColor: string;
-  borderColor: string;
+  modalStyle?: { [key: string]: any };
 }
 
 const PhoneInput: FC<PhoneInputProps> = ({
   label,
+  labelColor,
   placeholder,
+  borderColor,
+  height,
+  flex,
+  flexDirection,
+  borderWidth,
+  alignItems,
+  padding,
+  borderRadius,
   onPhoneChange,
   countryCode,
-  labelColor,
-  borderColor,
+  modalStyle,
 }) => {
   const [code, setCode] = useState<string>('');
   const [actualCountryCode, setActualCountryCode] =
@@ -47,7 +63,16 @@ const PhoneInput: FC<PhoneInputProps> = ({
       <Typography marginBottom="8px" color={labelColor}>
         {label}
       </Typography>
-      <Styles.InputContainer borderColor={borderColor}>
+      <Styles.InputContainer
+        borderColor={borderColor}
+        height={height}
+        flex={flex}
+        flexDirection={flexDirection}
+        borderWidth={borderWidth}
+        alignItems={alignItems}
+        padding={padding}
+        borderRadius={borderRadius}
+      >
         <CountryPicker
           withEmoji
           withCallingCode
@@ -55,11 +80,7 @@ const PhoneInput: FC<PhoneInputProps> = ({
           countryCode={actualCountryCode as CountryCode}
           onSelect={onUpdateCode}
           modalProps={{
-            style: {
-              width: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-            },
+            style: modalStyle,
           }}
         />
         <Input
@@ -67,8 +88,6 @@ const PhoneInput: FC<PhoneInputProps> = ({
           onChangeText={(value) => onUpdatePhone(value)}
           placeholder={placeholder}
           borderColor="transparent"
-          topMargin="5px"
-          leftMargin="-10px"
         />
       </Styles.InputContainer>
     </Styles.Container>

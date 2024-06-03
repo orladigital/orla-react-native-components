@@ -1,14 +1,17 @@
 import styled from 'styled-components/native';
 
 interface ContainerProps {
-  borderColor: string;
+  width?: string;
+  height?: string;
+  padding?: string;
+  border?: string;
+  borderRadius?: string;
 }
 
 export const Container = styled.View<ContainerProps>`
-  width: 100%;
-  height: fit-content;
-  padding: 16px;
-  border: 1px solid ${({ borderColor }) => borderColor};
-  border-radius: 16px;
-  margin-bottom: 16px;
+  ${({ width }) => width && `width: ${width}`};
+  ${({ height }) => height && `height: ${height}`};
+  ${({ padding }) => padding && `padding: ${padding}`};
+  ${({ border }) => border && `border: ${border}`};
+  ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius}`};
 `;

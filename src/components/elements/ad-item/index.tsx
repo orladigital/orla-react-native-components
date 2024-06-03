@@ -8,14 +8,22 @@ export interface AdItemProps {
   mediaStyle: object;
   androidKey: string;
   iosKey: string;
-  borderColor: string;
+  containerWidth?: string;
+  containerHeight?: string;
+  containerPadding?: string;
+  containerBorder?: string;
+  containerBorderRadius?: string;
 }
 
 const AdItem: FC<AdItemProps> = ({
   mediaStyle,
   androidKey,
   iosKey,
-  borderColor,
+  containerWidth,
+  containerHeight,
+  containerPadding,
+  containerBorder,
+  containerBorderRadius,
 }) => {
   const nativeAdViewRef = useRef<NativeAdView>(null);
 
@@ -31,7 +39,13 @@ const AdItem: FC<AdItemProps> = ({
       mediaAspectRatio={'landscape'}
       adUnitID={key}
     >
-      <Styles.Container borderColor={borderColor}>
+      <Styles.Container
+        width={containerWidth}
+        height={containerHeight}
+        padding={containerPadding}
+        border={containerBorder}
+        borderRadius={containerBorderRadius}
+      >
         <NativeMediaView style={mediaStyle} />
       </Styles.Container>
     </NativeAdView>

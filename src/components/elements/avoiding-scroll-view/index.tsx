@@ -3,12 +3,15 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 export interface AvoidingScrollViewProps {
   children: ReactNode;
+  contentContainer: { [key: string]: string | number };
+  container: { [key: string]: string | number };
 }
 
-const AvoidingScrollView: FC<AvoidingScrollViewProps> = ({ children }) => {
-  const contentContainer = { flexGrow: 1 };
-  const container = { flexGrow: 1 };
-
+const AvoidingScrollView: FC<AvoidingScrollViewProps> = ({
+  children,
+  contentContainer,
+  container,
+}) => {
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={contentContainer}

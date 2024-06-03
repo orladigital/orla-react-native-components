@@ -2,66 +2,60 @@ import styled from 'styled-components/native';
 import { type TouchableOpacityProps } from 'react-native';
 
 interface ButtonProps extends TouchableOpacityProps {
-  paddingVertical: string;
-  paddingHorizontal: string;
-  marginTop: string;
-  marginBottom: string;
-  marginLeft: string;
-  marginRight: string;
-  justifyContent: string;
-  alignItems: string;
+  paddingTop?: string;
+  paddingBottom?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
+  marginTop?: string;
+  marginBottom?: string;
+  marginLeft?: string;
+  marginRight?: string;
+  justifyContent?: string;
+  alignItems?: string;
+  flexDirection?: string;
 }
 
-interface ButtonWithColorProps {
-  paddingVertical: string;
-  paddingHorizontal: string;
-  color?: string;
-  width: string;
-  height: string;
-  minHeight: string;
-  justifyContent: string;
-  alignItems: string;
+interface ButtonWithColorProps extends ButtonProps {
+  width?: string;
+  height?: string;
+  minHeight?: string;
+  borderRadius?: string;
+  borderWidth?: string;
+  borderColor?: string;
+  backgroundColor?: string;
 }
 
 const BaseButton = styled.TouchableOpacity<ButtonProps>`
-  flex-direction: row;
-  justify-content: ${(props: ButtonProps) => props.justifyContent};
-  align-items: ${(props: ButtonProps) => props.alignItems};
-  margin-right: ${(props: ButtonProps) => props.marginRight};
-  margin-left: ${(props: ButtonProps) => props.marginLeft};
-  margin-bottom: ${(props: ButtonProps) => props.marginBottom};
-  margin-top: ${(props: ButtonProps) => props.marginTop};
-  padding-vertical: ${(props: ButtonProps) => props.paddingVertical};
-  padding-horizontal: ${(props: ButtonProps) => props.paddingHorizontal};
+  ${({ flexDirection }) => flexDirection && `flex-direction: ${flexDirection}`};
+  ${({ justifyContent }) =>
+    justifyContent && `justify-content: ${justifyContent}`};
+  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
+  ${({ marginTop, marginRight, marginBottom, marginLeft }) =>
+    (marginTop || marginRight || marginBottom || marginLeft) &&
+    `margin: ${marginTop || '0'} ${marginRight || '0'} ${marginBottom || '0'} ${marginLeft || '0'}`};
+  ${({ paddingTop, paddingRight, paddingBottom, paddingLeft }) =>
+    (paddingTop || paddingRight || paddingBottom || paddingLeft) &&
+    `padding: ${paddingTop || '0'} ${paddingRight || '0'} ${paddingBottom || '0'} ${paddingLeft || '0'}`};
 `;
 
 const FilledButton = styled(BaseButton)<ButtonWithColorProps>`
-  border-radius: 32px;
-  border-width: 1px;
-  justify-content: ${(props: ButtonWithColorProps) => props.justifyContent};
-  align-items: ${(props: ButtonWithColorProps) => props.alignItems};
-  border-color: ${(props: ButtonWithColorProps) => props.color};
-  background-color: ${(props: ButtonWithColorProps) => props.color};
-  width: ${(props: ButtonWithColorProps) => props.width};
-  height: ${(props: ButtonWithColorProps) => props.height};
-  min-height: ${(props: ButtonWithColorProps) => props.minHeight};
-  padding-vertical: ${(props: ButtonWithColorProps) => props.paddingVertical};
-  padding-horizontal: ${(props: ButtonWithColorProps) =>
-    props.paddingHorizontal};
+  ${({ borderRadius }) => borderRadius && `border-radius:  ${borderRadius}`};
+  ${({ borderWidth }) => borderWidth && `border-width: ${borderWidth}`};
+  ${({ borderColor }) => borderColor && `border-color: ${borderColor}`};
+  ${({ backgroundColor }) =>
+    backgroundColor && `background-color: ${backgroundColor}`};
+  ${({ width }) => width && `width: ${width}`};
+  ${({ height }) => height && `height: ${height}`};
+  ${({ minHeight }) => minHeight && `min-height: ${minHeight}`};
 `;
 
 const BorderButton = styled(BaseButton)<ButtonWithColorProps>`
-  border-radius: 32px;
-  border-width: 1px;
-  border-color: ${(props: ButtonWithColorProps) => props.color};
-  width: ${(props: ButtonWithColorProps) => props.width};
-  height: ${(props: ButtonWithColorProps) => props.height};
-  min-height: ${(props: ButtonWithColorProps) => props.minHeight};
-  justify-content: ${(props: ButtonWithColorProps) => props.justifyContent};
-  align-items: ${(props: ButtonWithColorProps) => props.alignItems};
-  padding-vertical: ${(props: ButtonWithColorProps) => props.paddingVertical};
-  padding-horizontal: ${(props: ButtonWithColorProps) =>
-    props.paddingHorizontal};
+  ${({ borderRadius }) => borderRadius && `border-radius:  ${borderRadius}`};
+  ${({ borderWidth }) => borderWidth && `border-width: ${borderWidth}`};
+  ${({ borderColor }) => borderColor && `border-color: ${borderColor}`};
+  ${({ width }) => width && `width: ${width}`};
+  ${({ height }) => height && `height: ${height}`};
+  ${({ minHeight }) => minHeight && `min-height: ${minHeight}`};
 `;
 
 const ActivityContainer = styled.View`

@@ -8,33 +8,33 @@ export interface TypographyProps {
   marginBottom?: string;
   marginLeft?: string;
   marginRight?: string;
-  width?: string;
   textAlign?: string;
-  numberOfLines?: number;
+  width?: string;
   textDecorationLine?: string;
   flexShrink?: number;
   fontFamily?: string;
+  fontWeight?: number;
   fontSize?: string;
   lineHeight?: string;
-  fontWeight?: number;
+  numberOfLines?: number;
   children: ReactNode;
 }
 
 const Typography: FC<TypographyProps> = ({
   color,
-  marginTop = '0px',
-  marginBottom = '0px',
-  marginLeft = '0px',
-  marginRight = '0px',
-  width = 'auto',
-  textAlign = 'left',
-  numberOfLines = 0,
-  textDecorationLine = 'none',
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  textAlign,
+  width,
+  textDecorationLine,
   flexShrink,
   fontFamily,
+  fontWeight,
   fontSize,
   lineHeight,
-  fontWeight,
+  numberOfLines,
   children,
 }) => {
   return (
@@ -44,15 +44,15 @@ const Typography: FC<TypographyProps> = ({
       marginBottom={marginBottom}
       marginLeft={marginLeft}
       marginRight={marginRight}
-      numberOfLines={numberOfLines}
       textAlign={textAlign}
       width={width}
       textDecorationLine={textDecorationLine}
       flexShrink={flexShrink}
       fontFamily={fontFamily}
+      fontWeight={fontWeight}
       fontSize={fontSize}
       lineHeight={lineHeight}
-      fontWeight={fontWeight}
+      numberOfLines={numberOfLines}
     >
       {children}
     </Styles.Typography>
