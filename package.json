@@ -1,5 +1,5 @@
 {
-  "name": "react-native-components",
+  "name": "orla-react-native-components",
   "version": "0.1.0",
   "description": "Library to use generic components more easily",
   "main": "lib/commonjs/index",
@@ -40,14 +40,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/orladigital/react-native-components.git"
+    "url": "git+https://github.com/orladigital/orla-react-native-components.git"
   },
   "author": "Allan Patrick <allan@orla.tech> (https://www.orla.tech/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/orladigital/react-native-components/issues"
+    "url": "https://github.com/orladigital/orla-react-native-components/issues"
   },
-  "homepage": "https://github.com/orladigital/react-native-components#readme",
+  "homepage": "https://github.com/orladigital/orla-react-native-components#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

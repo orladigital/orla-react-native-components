@@ -1,17 +1,17 @@
-# react-native-components
+# orla-react-native-components
 
 Library to use generic components more easily
 
 ## Installation
 
 ```sh
-npm install react-native-components
+npm install orla-react-native-components
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'react-native-components';
+import { multiply } from 'orla-react-native-components';
 
 // ...
 
