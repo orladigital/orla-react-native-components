@@ -1,47 +1,66 @@
 import styled from 'styled-components/native';
 
-interface ContainerInterface {
-  backgroundColor: string;
+interface ShadowInterface {
+  backgroundColor?: string;
+  padding?: string;
+  alignItems?: string;
+  justifyContent?: string;
+  flex?: string;
 }
 
-interface ShadowInterface {
-  backgroundColor: string;
+interface ContainerInterface {
+  padding?: string;
+  maxHeight?: string;
+  marginTop?: string;
+  marginBottom?: string;
+  marginLeft?: string;
+  marginRight?: string;
+  backgroundColor?: string;
+  borderRadius?: string;
+}
+
+interface ButtonContainerInterface {
+  marginTop?: string;
+  marginBottom?: string;
+  marginLeft?: string;
+  marginRight?: string;
+  flexDirection?: string;
+  width?: string;
+  justifyContent?: string;
 }
 
 export const ModalPicker = styled.Modal``;
 
-export const CenterContainer = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+export const Shadow = styled.TouchableOpacity<ShadowInterface>`
+  ${({ backgroundColor }) =>
+    backgroundColor && `background-color: ${backgroundColor}`};
+  padding: 16px;
+  ${({ padding }) => padding && `padding: ${padding}`};
+  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
+  ${({ justifyContent }) =>
+    justifyContent && `justify-content: ${justifyContent}`};
+  ${({ flex }) => flex && `flex: ${flex}`};
 `;
 
 export const Container = styled.View<ContainerInterface>`
-  padding: 24px;
-  padding-bottom: 16px;
-  max-height: 70%;
-  margin-left: 16px;
-  margin-right: 16px;
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  border-radius: 32px;
+  ${({ padding }) => padding && `padding: ${padding}`};
+  ${({ maxHeight }) => maxHeight && `max-height: ${maxHeight}`};
+  ${({ marginTop }) => marginTop && `margin-top: ${marginTop}`};
+  ${({ marginBottom }) => marginBottom && `margin-bottom: ${marginBottom}`};
+  ${({ marginLeft }) => marginLeft && `margin-left: ${marginLeft}`};
+  ${({ marginRight }) => marginRight && `margin-right: ${marginRight}`};
+  ${({ backgroundColor }) =>
+    backgroundColor && `background-color: ${backgroundColor}`};
+  ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius}`};
 `;
 
-export const Shadow = styled.TouchableOpacity<ShadowInterface>`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  padding: 16px;
-`;
-
-export const ButtonContainer = styled.TouchableOpacity`
-  margin-top: 16px;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
+export const ButtonContainer = styled.TouchableOpacity<ButtonContainerInterface>`
+  ${({ marginTop }) => marginTop && `margin-top: ${marginTop}`};
+  ${({ marginBottom }) => marginBottom && `margin-bottom: ${marginBottom}`};
+  ${({ marginLeft }) => marginLeft && `margin-left: ${marginLeft}`};
+  ${({ marginRight }) => marginRight && `margin-right: ${marginRight}`};
+  ${({ flexDirection }) => flexDirection && `flex-direction: ${flexDirection}`};
+  ${({ width }) => width && `width: ${width}`};
+  ${({ justifyContent }) =>
+    justifyContent && `justify-content: ${justifyContent}`};
 `;

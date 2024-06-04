@@ -1,38 +1,56 @@
 import styled from 'styled-components/native';
 
 interface ContainerProps {
-  paddingTop: string;
-  paddingBottom: string;
-  paddingLeft: string;
-  paddingRight: string;
-  backgroundColor: string;
+  maxHeight?: string;
+  width?: string;
+  backgroundColor?: string;
+  borderTopLeftRadius?: string;
+  borderTopRightRadius?: string;
+  borderBottomLeftRadius?: string;
+  borderBottomRightRadius?: string;
+  position?: string;
+  bottom?: string;
+  paddingTop?: string;
+  paddingBottom?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
 }
 
 interface ShadowProps {
-  backgroundColor: string;
+  backgroundColor?: string;
+  flex?: string;
+  justifyContent?: string;
+  alignItems?: string;
 }
 
 export const ModalPicker = styled.Modal``;
 
 export const Container = styled.View<ContainerProps>`
-  padding: 24px;
-  padding-bottom: 16px;
-  max-height: 400px;
-  width: 100%;
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  border-top-left-radius: 32px;
-  border-top-right-radius: 32px;
-  position: absolute;
-  bottom: 0;
-  padding-top: ${({ paddingTop }) => paddingTop};
-  padding-bottom: ${({ paddingBottom }) => paddingBottom};
-  padding-left: ${({ paddingLeft }) => paddingLeft};
-  padding-right: ${({ paddingRight }) => paddingRight};
+  ${({ maxHeight }) => maxHeight && `max-height: ${maxHeight}`};
+  ${({ width }) => width && `width: ${width}`};
+  ${({ backgroundColor }) =>
+    backgroundColor && `background-color: ${backgroundColor}`};
+  ${({ borderTopLeftRadius }) =>
+    borderTopLeftRadius && `border-top-left-radius: ${borderTopLeftRadius}`};
+  ${({ borderTopRightRadius }) =>
+    borderTopRightRadius && `border-top-right-radius: ${borderTopRightRadius}`};
+  ${({ borderBottomLeftRadius }) =>
+    borderBottomLeftRadius &&
+    `border-bottom-left-radius: ${borderBottomLeftRadius}`};
+  ${({ borderBottomRightRadius }) =>
+    borderBottomRightRadius &&
+    `border-bottom-right-radius: ${borderBottomRightRadius}`};
+  ${({ position }) => position && `position: ${position}`};
+  ${({ bottom }) => bottom && `bottom: ${bottom}`};
+  ${({ paddingTop }) => paddingTop && `padding-top: ${paddingTop}`};
+  ${({ paddingBottom }) => paddingBottom && `padding-bottom: ${paddingBottom}`};
+  ${({ paddingLeft }) => paddingLeft && `padding-left: ${paddingLeft}`};
+  ${({ paddingRight }) => paddingRight && `padding-right: ${paddingRight}`};
 `;
 
 export const Shadow = styled.TouchableOpacity<ShadowProps>`
-  flex: 1;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  ${({ flex }) => `flex: ${flex}`};
+  ${({ justifyContent }) => `justify-content: ${justifyContent}`};
+  ${({ alignItems }) => `align-items: ${alignItems}`};
+  ${({ backgroundColor }) => `background-color: ${backgroundColor}`};
 `;

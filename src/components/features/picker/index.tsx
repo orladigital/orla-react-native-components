@@ -8,28 +8,50 @@ export interface PickerProps {
   show: boolean;
   setShow: Dispatch<SetStateAction<boolean>>;
   items: any[];
-  paddingTop: string;
-  paddingBottom: string;
-  paddingLeft: string;
-  paddingRight: string;
-  shadowBackgroundColor: string;
-  containerBackgroundColor: string;
   separator: React.ComponentType<any> | null | undefined;
   renderItemFunction: ListRenderItem<any> | null | undefined;
+  maxHeight?: string;
+  width?: string;
+  backgroundColor?: string;
+  borderTopLeftRadius?: string;
+  borderTopRightRadius?: string;
+  borderBottomLeftRadius?: string;
+  borderBottomRightRadius?: string;
+  position?: string;
+  bottom?: string;
+  paddingTop?: string;
+  paddingBottom?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
+  shadowFlex?: string;
+  shadowJustifyContent?: string;
+  shadowAlignItems?: string;
+  shadowBackgroundColor?: string;
 }
 
 const Picker: FC<PickerProps> = ({
   show,
   setShow,
   items,
+  separator,
+  renderItemFunction,
+  maxHeight,
+  width,
+  backgroundColor,
+  borderTopLeftRadius,
+  borderTopRightRadius,
+  borderBottomLeftRadius,
+  borderBottomRightRadius,
+  position,
+  bottom,
   paddingTop,
   paddingBottom,
   paddingLeft,
   paddingRight,
+  shadowFlex,
+  shadowJustifyContent,
+  shadowAlignItems,
   shadowBackgroundColor,
-  containerBackgroundColor,
-  separator,
-  renderItemFunction,
 }) => {
   const close = () => {
     setShow(!show);
@@ -43,9 +65,23 @@ const Picker: FC<PickerProps> = ({
       visible={show}
       onRequestClose={close}
     >
-      <Styles.Shadow onPress={close} backgroundColor={shadowBackgroundColor} />
+      <Styles.Shadow
+        onPress={close}
+        flex={shadowFlex}
+        justifyContent={shadowJustifyContent}
+        alignItems={shadowAlignItems}
+        backgroundColor={shadowBackgroundColor}
+      />
       <Styles.Container
-        backgroundColor={containerBackgroundColor}
+        maxHeight={maxHeight}
+        width={width}
+        backgroundColor={backgroundColor}
+        borderTopLeftRadius={borderTopLeftRadius}
+        borderTopRightRadius={borderTopRightRadius}
+        borderBottomLeftRadius={borderBottomLeftRadius}
+        borderBottomRightRadius={borderBottomRightRadius}
+        position={position}
+        bottom={bottom}
         paddingTop={paddingTop}
         paddingBottom={paddingBottom}
         paddingLeft={paddingLeft}
