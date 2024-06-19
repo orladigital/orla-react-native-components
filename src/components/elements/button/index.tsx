@@ -1,38 +1,11 @@
-import React, { type FC, type ReactNode } from 'react';
+import React, { type FC } from 'react';
 import { ActivityIndicator, Platform } from 'react-native';
+
+import type { IButtonProps } from '../../../types';
 
 import * as Styles from './styles';
 
-export interface ButtonProps {
-  paddingTop?: string;
-  paddingBottom?: string;
-  paddingLeft?: string;
-  paddingRight?: string;
-  marginTop?: string;
-  marginBottom?: string;
-  marginLeft?: string;
-  marginRight?: string;
-  justifyContent?: string;
-  alignItems?: string;
-  flexDirection?: string;
-  width?: string;
-  height?: string;
-  minHeight?: string;
-  borderRadius?: string;
-  borderWidth?: string;
-  borderColor?: string;
-  backgroundColor?: string;
-  variant?: 'FilledButton' | 'BorderButton' | 'Button';
-  disabled?: boolean;
-  isLoading?: boolean;
-  onPress?: () => void;
-  onPressIn?: () => void;
-  onPressOut?: () => void;
-  activityColor?: string;
-  children?: ReactNode;
-}
-
-const Button: FC<ButtonProps> = ({
+const Button: FC<IButtonProps> = ({
   paddingTop,
   paddingBottom,
   paddingLeft,

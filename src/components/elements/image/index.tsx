@@ -1,14 +1,10 @@
 import React, { type FC } from 'react';
 
+import type { IImageProps } from '../../../types';
+
 import * as Styles from './styles';
 
-export interface ImageProps {
-  path: any;
-  height?: string | number;
-  width?: string | number;
-}
-
-const Image: FC<ImageProps> = ({ path, height, width }) => {
+const Image: FC<IImageProps> = ({ path, height, width }) => {
   return (
     <Styles.Image
       source={path}

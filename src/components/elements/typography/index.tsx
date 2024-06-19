@@ -1,26 +1,10 @@
-import React, { type FC, type ReactNode } from 'react';
+import React, { type FC } from 'react';
+
+import type { ITypographyProps } from '../../../types';
 
 import * as Styles from './styles';
 
-export interface TypographyProps {
-  color?: string;
-  marginTop?: string;
-  marginBottom?: string;
-  marginLeft?: string;
-  marginRight?: string;
-  textAlign?: string;
-  width?: string;
-  textDecorationLine?: string;
-  flexShrink?: number;
-  fontFamily?: string;
-  fontWeight?: number;
-  fontSize?: string;
-  lineHeight?: string;
-  numberOfLines?: number;
-  children: ReactNode;
-}
-
-const Typography: FC<TypographyProps> = ({
+const Typography: FC<ITypographyProps> = ({
   color,
   marginTop,
   marginBottom,

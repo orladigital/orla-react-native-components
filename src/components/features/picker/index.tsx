@@ -1,35 +1,11 @@
-import React, { type Dispatch, type FC, type SetStateAction } from 'react';
+import React, { type FC } from 'react';
+
 import PickerList from '../picker-list';
+import type { IPickerProps } from '../../../types';
 
 import * as Styles from './styles';
-import type { ListRenderItem } from 'react-native';
 
-export interface PickerProps {
-  show: boolean;
-  setShow: Dispatch<SetStateAction<boolean>>;
-  items: any[];
-  separator: React.ComponentType<any> | null | undefined;
-  renderItemFunction: ListRenderItem<any> | null | undefined;
-  maxHeight?: string;
-  width?: string;
-  backgroundColor?: string;
-  borderTopLeftRadius?: string;
-  borderTopRightRadius?: string;
-  borderBottomLeftRadius?: string;
-  borderBottomRightRadius?: string;
-  position?: string;
-  bottom?: string;
-  paddingTop?: string;
-  paddingBottom?: string;
-  paddingLeft?: string;
-  paddingRight?: string;
-  shadowFlex?: string;
-  shadowJustifyContent?: string;
-  shadowAlignItems?: string;
-  shadowBackgroundColor?: string;
-}
-
-const Picker: FC<PickerProps> = ({
+const Picker: FC<IPickerProps> = ({
   show,
   setShow,
   items,

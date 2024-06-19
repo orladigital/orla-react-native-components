@@ -1,21 +1,9 @@
 import React, { type FC } from 'react';
-
 import { Slider as SliderLib } from '@miblanchard/react-native-slider';
 
-export interface SliderProps {
-  minimumValue: number;
-  maximumValue: number;
-  fullColor: string;
-  emptyColor: string;
-  step: number;
-  onValueChange: (value: Array<number>) => void;
-  value: number;
-  thumbTintColor: string;
-  thumbStyle: object;
-  trackStyle: object;
-}
+import type { ISliderProps } from '../../../types';
 
-const Slider: FC<SliderProps> = ({
+const Slider: FC<ISliderProps> = ({
   minimumValue,
   maximumValue,
   fullColor,

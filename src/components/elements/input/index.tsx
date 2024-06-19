@@ -1,48 +1,10 @@
-import { type KeyboardTypeOptions } from 'react-native/types';
 import React, { type FC } from 'react';
 import Typography from '../typography';
 
 import * as Styles from './styles';
+import type { IInputProps } from '../../../types';
 
-export interface InputProps {
-  marginTop?: string;
-  marginLeft?: string;
-  marginRight?: string;
-  marginBottom?: string;
-  flexDirection?: string;
-  paddingTop?: string;
-  paddingBottom?: string;
-  paddingLeft?: string;
-  paddingRight?: string;
-  height?: string;
-  width?: string;
-  borderColor?: string;
-  borderWidth?: string;
-  borderTopLeftRadius?: string;
-  borderBottomLeftRadius?: string;
-  borderTopRightRadius?: string;
-  borderBottomRightRadius?: string;
-  alignContent?: string;
-  onChangeText: (text: string) => void;
-  onSubmitEditing?: () => void;
-  onBlur?: () => void;
-  value: string;
-  placeholder?: string;
-  placeholderColor?: string;
-  editable?: boolean;
-  autoFocus?: boolean;
-  multiline?: boolean;
-  selectionColor?: string;
-  blurOnSubmit?: boolean;
-  label?: string;
-  labelColor?: string;
-  maxLength?: number;
-  secureText?: boolean;
-  keyboardType?: KeyboardTypeOptions;
-  inputColor?: string;
-}
-
-const Input: FC<InputProps> = ({
+const Input: FC<IInputProps> = ({
   marginTop,
   marginLeft,
   marginRight,

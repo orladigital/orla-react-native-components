@@ -1,13 +1,9 @@
 import React, { type FC } from 'react';
-import { FlatList, type ListRenderItem } from 'react-native';
+import { FlatList } from 'react-native';
 
-interface PickerListProps {
-  items: any[];
-  separator: React.ComponentType<any> | null | undefined;
-  renderItemFunction: ListRenderItem<any> | null | undefined;
-}
+import type { IPickerListProps } from '../../../types';
 
-const PickerList: FC<PickerListProps> = ({
+const PickerList: FC<IPickerListProps> = ({
   items,
   separator,
   renderItemFunction,

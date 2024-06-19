@@ -1,15 +1,10 @@
-import React, { type ReactNode } from 'react';
-import { type ViewStyle, StatusBar } from 'react-native';
+import React from 'react';
+import { StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export interface SafeAreaWithBarProps {
-  color?: string;
-  children: ReactNode;
-  barStyle?: 'default' | 'light-content' | 'dark-content';
-  containerStyle: ViewStyle;
-}
+import type { ISafeAreaWithBarProps } from '../../../types';
 
-const SafeAreaWithBar: React.FC<SafeAreaWithBarProps> = ({
+const SafeAreaWithBar: React.FC<ISafeAreaWithBarProps> = ({
   color,
   children,
   barStyle,

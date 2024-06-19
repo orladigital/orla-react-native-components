@@ -1,18 +1,11 @@
 import React, { type FC } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import type { ISafeAreaProps } from '../../../types';
+
 import * as Styles from './styles';
 
-export interface SafeAreaProps {
-  backgroundColor?: string;
-  children: Element;
-  shouldAddTopPadding?: boolean;
-  shouldAddLeftPadding?: boolean;
-  shouldAddRightPadding?: boolean;
-  shouldAddBottomPadding?: boolean;
-}
-
-const SafeArea: FC<SafeAreaProps> = ({
+const SafeArea: FC<ISafeAreaProps> = ({
   backgroundColor,
   children,
   shouldAddTopPadding = true,

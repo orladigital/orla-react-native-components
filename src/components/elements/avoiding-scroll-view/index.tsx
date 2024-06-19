@@ -1,13 +1,9 @@
-import React, { type ReactNode, type FC } from 'react';
+import React, { type FC } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-export interface AvoidingScrollViewProps {
-  children: ReactNode;
-  contentContainer: { [key: string]: string | number };
-  container: { [key: string]: string | number };
-}
+import type { IAvoidingScrollViewProps } from '../../../types';
 
-const AvoidingScrollView: FC<AvoidingScrollViewProps> = ({
+const AvoidingScrollView: FC<IAvoidingScrollViewProps> = ({
   children,
   contentContainer,
   container,

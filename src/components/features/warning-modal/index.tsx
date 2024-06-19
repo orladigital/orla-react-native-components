@@ -1,47 +1,12 @@
-import React, { type Dispatch, type FC, type SetStateAction } from 'react';
+import React, { type FC } from 'react';
 
 import Button from '../../elements/button';
 import Typography from '../../elements/typography';
+import type { IWarningModalProps } from '../../../types';
 
 import * as Styles from './styles';
 
-export interface WarningModalProps {
-  show: boolean;
-  setShow: Dispatch<SetStateAction<boolean>>;
-  onConfirmPress: () => void;
-  title: string;
-  body: string;
-  confirmText: string;
-  cancelText: string;
-  confirmButtonColor: string;
-  confirmButtonTextColor: string;
-  cancelButtonColor: string;
-  cancelButtonTextColor: string;
-  confirmButtonWidth: string;
-  cancelButtonWidth: string;
-  shadowBackgroundColor: string;
-  shadowPadding?: string;
-  shadowAlignItems?: string;
-  shadowJustifyContent?: string;
-  shadowFlex?: string;
-  padding?: string;
-  maxHeight?: string;
-  marginTop?: string;
-  marginBottom?: string;
-  marginLeft?: string;
-  marginRight?: string;
-  backgroundColor?: string;
-  borderRadius?: string;
-  buttonContainerMarginTop?: string;
-  buttonContainerMarginBottom?: string;
-  buttonContainerMarginLeft?: string;
-  buttonContainerMarginRight?: string;
-  buttonContainerFlexDirection?: string;
-  buttonContainerWidth?: string;
-  buttonContainerJustifyContent?: string;
-}
-
-const WarningModal: FC<WarningModalProps> = ({
+const WarningModal: FC<IWarningModalProps> = ({
   show,
   setShow,
   onConfirmPress,

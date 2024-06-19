@@ -1,24 +1,11 @@
 import React, { type FC } from 'react';
 
 import Typography from '../typography';
+import type { ISwitchProps } from '../../../types';
 
 import * as Styles from './styles';
 
-export interface SwitchProps {
-  label: string;
-  state: boolean;
-  onToggleChange: (isOn: boolean) => void;
-  textColor: string;
-  trackColor: string;
-  trackFilledColor: string;
-  thumbColor: string;
-  thumbActiveColor: string;
-  flexDirection: string;
-  alignItems: string;
-  justifyContent: string;
-}
-
-const Switch: FC<SwitchProps> = ({
+const Switch: FC<ISwitchProps> = ({
   label,
   state,
   onToggleChange,

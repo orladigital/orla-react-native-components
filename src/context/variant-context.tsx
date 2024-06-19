@@ -14,11 +14,7 @@ interface IMusicProviderProps {
 }
 
 export interface IVariantContext {
-  defineVariant: ({
-    component,
-    name,
-    defaultProps,
-  }: DefineVariantObject) => void;
+  defineVariant: ({ component, name, props }: DefineVariantObject) => void;
   variants: Variants;
 }
 
@@ -30,10 +26,10 @@ export const VariantProvider: FC<IMusicProviderProps> = ({ children }) => {
   const [variants, setVariants] = useState<Variants>({});
 
   const defineVariant = useCallback(
-    ({ component, name, defaultProps }: DefineVariantObject) => {
+    ({ component, name, props }: DefineVariantObject) => {
       setVariants((prevVariants) => ({
         ...prevVariants,
-        [component]: { ...[component], [name]: defaultProps },
+        [component]: { ...[component], [name]: props },
       }));
     },
     []

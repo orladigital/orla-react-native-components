@@ -6,27 +6,11 @@ import CountryPicker, {
 
 import Typography from '../typography';
 import Input from '../input';
+import type { IPhoneInputProps } from '../../../types';
 
 import * as Styles from './styles';
 
-export interface PhoneInputProps {
-  label: string;
-  labelColor: string;
-  placeholder: string;
-  borderColor?: string;
-  height?: string;
-  flex?: string;
-  flexDirection?: string;
-  borderWidth?: string;
-  alignItems?: string;
-  padding?: string;
-  borderRadius?: string;
-  onPhoneChange: (phone: string) => void;
-  countryCode: string;
-  modalStyle?: { [key: string]: any };
-}
-
-const PhoneInput: FC<PhoneInputProps> = ({
+const PhoneInput: FC<IPhoneInputProps> = ({
   label,
   labelColor,
   placeholder,
