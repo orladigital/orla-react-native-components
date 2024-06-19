@@ -158,7 +158,6 @@
   "dependencies": {
     "@miblanchard/react-native-slider": "^2.6.0",
     "@types/react-native-vector-icons": "^6.4.18",
-    "react-native-admob-native-ads": "^0.6.6",
     "react-native-country-picker-modal": "^2.0.0",
     "react-native-google-mobile-ads": "^13.6.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
